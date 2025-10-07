@@ -2,7 +2,7 @@ export interface BaseButton {
   id?: string;
   children: React.ReactNode;
   className?: string;
-  title: string;
+  title?: string;
 }
 
 export interface Button extends BaseButton {

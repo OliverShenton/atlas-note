@@ -1,7 +1,7 @@
 import CustomHr from "@/components/global/CustomHr";
-import LegalContentSidebar from "@/components/legal/LegalContentSidebar";
-import LegalSection from "@/components/legal/LegalSection";
-import { termsPolicyData } from "@/data/legal/termsPolicyData";
+import LegalContentSidebar from "@/app/legal/components/LegalContentSidebar";
+import LegalSection from "@/app/legal/components/LegalSection";
+import { termsPolicyData } from "@/app/legal/terms/termsPolicyData";
 import { Metadata } from "next";
 
 export const metadata: Metadata = {

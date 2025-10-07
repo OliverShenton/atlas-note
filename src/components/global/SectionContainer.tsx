@@ -5,9 +5,10 @@ interface SectionContainerProps {
   children: React.ReactNode;
   fullScreen?: boolean;
   width?: string;
-  verticalSpacing?: number;
   className?: string;
   position?: "relative" | "absolute" | "static";
+  verticalSpacing?: string;
+  verticalPadding?: boolean;
 }
 
 const SectionContainer = ({
@@ -17,14 +18,15 @@ const SectionContainer = ({
   children,
   fullScreen,
   width = "w-full",
-  verticalSpacing,
   className = "",
   position = "relative",
+  verticalSpacing = "space-y-16",
+  verticalPadding = true,
 }: SectionContainerProps) => {
   return (
     <section id={id} aria-label={ariaLabel} aria-labelledby={ariaLabelledBy} className={className}>
       <div
-        className={`${width} space-y-${verticalSpacing} mx-auto py-40 ${
+        className={`${width} mx-auto ${verticalSpacing} ${verticalPadding ? "py-20" : "py-10"} ${
           fullScreen ? "min-h-[100dvh] h-full w-full" : undefined
         } ${position}`}>
         {children}

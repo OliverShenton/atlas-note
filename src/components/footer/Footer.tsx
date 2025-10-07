@@ -1,104 +1,80 @@
-import { FaDiscord, FaFacebookF, FaGithub, FaInstagram, FaLinkedin } from "react-icons/fa";
-import { FaXTwitter } from "react-icons/fa6";
+import Image from "next/image";
+import CustomHr from "../global/CustomHr";
+import logo from "@/app/favicon.ico";
 import { LinkButton } from "../global/Button";
+import { footerNavData, footerSocialData } from "./footerData";
 
-const footerData = [
-  {
-    title: "Product",
-    list: [
-      { label: "Features", href: "/#features" },
-      { label: "Pricing", href: "/pricing" },
-      { label: "Changelog", href: "/changelog" },
-      { label: "Status", href: "/status" },
-    ],
-  },
-  {
-    title: "Company",
-    list: [
-      { label: "About", href: "/about" },
-      { label: "Blog", href: "/blog" },
-      { label: "Careers", href: "/careers" },
-    ],
-  },
-  {
-    title: "Legal",
-    list: [
-      { label: "Privacy Policy", href: "/legal/privacy" },
-      { label: "Terms & Conditions", href: "/legal/terms" },
-      { label: "Cookies", href: "/legal/cookies" },
-    ],
-  },
-];
+const currentYear = new Date().getFullYear();
 
-const socialData = [
-  { icon: <FaGithub />, label: "Github", href: "/", style: "bg-[#000]" },
-  { icon: <FaXTwitter />, label: "X", href: "http://www.x.com", style: "bg-[#000]" },
-  {
-    icon: <FaLinkedin />,
-    label: "LinkedIn",
-    href: "https://www.linkedin.com/in/olivershenton/",
-    style: "bg-[#0077b5]",
-  },
-  { icon: <FaDiscord />, label: "Discord", href: "http://www.discord.com", style: "bg-[#7289da]" },
-  {
-    icon: <FaFacebookF />,
-    label: "Facebook",
-    href: "http://www.facebook.com",
-    style: "bg-[#1877f2]",
-  },
-  {
-    icon: <FaInstagram />,
-    label: "Instagram",
-    href: "http://www.instagram.com",
-    style: "bg-gradient-to-tr from-[#feda75] via-[#d62976] to-[#962fbf]",
-  },
-];
+const hoverStyle = "hover:text-[var(--text)] hover:underline transition-all duration-200";
 
 const Footer = () => {
   return (
-    <footer className="bg-slate-100 border-t border-[var(--text)]/10 px-4 py-12 space-y-4 z-50">
-      <div className="max-w-7xl mx-auto flex gap-8">
-        {/* Brand */}
-        <div className="flex-1">
-          <h3 className="font-bold text-xl text-slate-900">AtlasNote</h3>
-          <p className="text-slate-600 mt-2 text-sm">
-            Docs that answer back. Built for modern teams.
-          </p>
-          <p className="text-slate-400 mt-6 text-xs">© 2025 AtlasNote. All rights reserved.</p>
-        </div>
+    <footer id="footer" className="border-t border-[var(--text)]/10 w-full h-full">
+      <div className="max-w-[96rem] mx-auto py-12 space-y-12">
+        <div className="flex">
+          {/* Left */}
+          <div className="flex-1 space-y-4">
+            <a href="/" className="flex items-center space-x-4">
+              <Image src={logo} alt="AtlasNote logo" width={40} height={40} />
+              <p id="logo-name" className="text-2xl text-[var(--text)] font-bold">
+                AtlasNote
+              </p>
+            </a>
+            <p className="text-lg text-[var(--secondary-text)]">
+              Docs that answer back. Built for modern times.
+            </p>
+            <p className="text-base text-[var(--secondary-text)]">
+              For more information, please ready our privacy policy.
+            </p>
+          </div>
 
-        {/* Product */}
-        <div className="flex-1 flex justify-center">
-          {footerData.map((data, idx) => (
-            <div key={idx} className="space-y-2 flex-1">
-              <h4 className="text-[var(--text)] text-lg font-semibold">{data.title}</h4>
-              <ul className="text-[var(--secondary-text)] text-sm space-y-2">
-                {data.list.map((item, idx) => (
-                  <li key={idx}>
-                    <a href={item.href} className="hover:text-blue-500">
-                      {item.label}
-                    </a>
-                  </li>
-                ))}
-              </ul>
+          {/* Right */}
+          <div className="flex-1">
+            <div className="flex gap-20 justify-end text-center">
+              {footerNavData.map((item) => (
+                <div key={item.column} className="space-y-4">
+                  <h3 className="text-lg text-[var(--text)] font-semibold">{item.column}</h3>
+                  <div className="flex flex-col space-y-4 text-[var(--secondary-text)]">
+                    {item.list.map((link) => (
+                      <a key={link.label} href={link.href} className={hoverStyle}>
+                        {link.label}
+                      </a>
+                    ))}
+                  </div>
+                </div>
+              ))}
+              <div className="text-center space-y-4">
+                <h3 className="text-lg text-[var(--text)] font-semibold">Socials</h3>
+                <div className="grid grid-cols-3 gap-8">
+                  {footerSocialData.map((item) => (
+                    <LinkButton
+                      key={item.label}
+                      href={item.href}
+                      target="_blank"
+                      className={`${item.style} text-2xl text-[var(--text)] hover:text-[var(--secondary-text)]`}>
+                      {item.icon}
+                    </LinkButton>
+                  ))}
+                </div>
+              </div>
             </div>
-          ))}
+          </div>
         </div>
 
-        {/* Socials */}
-        <div className="flex-1 flex-col space-y-2">
-          <h4 className="text-[var(--text)] text-lg font-semibold">Our Socials</h4>
-          <div className="grid grid-cols-3 gap-2 text-white w-fit">
-            {socialData.map((social) => (
-              <LinkButton
-                key={social.label}
-                title={social.label}
-                target="_blank"
-                href={social.href}
-                className={social.style}>
-                {social.icon}
-              </LinkButton>
-            ))}
+        <CustomHr opaque />
+
+        {/* Bottom */}
+        <div className="flex items-center justify-between text-[var(--secondary-text)]">
+          <p>Copyright &copy; {currentYear} AtlasNote. All rights reserved.</p>
+          <div className="space-x-8">
+            <a href="/legal/privacy" className={hoverStyle}>
+              Privacy Policy
+            </a>
+            <span>•</span>
+            <a href="/legal/terms" className={hoverStyle}>
+              Terms of Service
+            </a>
           </div>
         </div>
       </div>

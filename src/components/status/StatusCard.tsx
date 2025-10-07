@@ -1,4 +1,4 @@
-import { StatusProps } from "@/data/status/statusData";
+import { StatusProps } from "@/data/product/statusData";
 
 const StatusCard = ({ icon, label, status, date }: StatusProps) => {
   return (
