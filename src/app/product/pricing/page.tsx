@@ -1,5 +1,17 @@
+import CustomHr from "@/components/global/CustomHr";
+import ComparisonSection from "./components/ComparisonSection";
+import FeaturedSection from "./components/FeaturedSection";
+import SocialProofSection from "./components/SocialProofSection";
+
 const PricingPage = () => {
-  return <>{/* Made up of 3 sections - 3 cards, comparison grid, lsit of users */}</>;
+  return (
+    <>
+      <FeaturedSection />
+      {/* <CustomHr opaque /> */}
+      {/* <SocialProofSection /> */}
+      {/* <ComparisonSection /> */}
+    </>
+  );
 };
 
 export default PricingPage;

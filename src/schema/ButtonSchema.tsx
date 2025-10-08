@@ -1,19 +1,21 @@
-export interface BaseButton {
+import React from "react";
+
+export type BaseButton = {
   id?: string;
   children: React.ReactNode;
   className?: string;
   title?: string;
-}
+};
 
-export interface Button extends BaseButton {
-  onClick: React.MouseEventHandler<HTMLButtonElement>;
-}
+export type Button = React.ButtonHTMLAttributes<HTMLButtonElement> & BaseButton;
 
-export interface RouterButton extends BaseButton {
+export type RouterButton = {
   href: string;
-}
+} & React.AnchorHTMLAttributes<HTMLAnchorElement> &
+  BaseButton;
 
-export interface LinkButton extends BaseButton {
-  href: string;
-  target: "_blank" | "_self" | "_parent" | "_top";
-}
+export type LinkButton = React.AnchorHTMLAttributes<HTMLAnchorElement> &
+  BaseButton & {
+    href: string;
+    target?: "_blank" | "_self" | "_parent" | "_top";
+  };

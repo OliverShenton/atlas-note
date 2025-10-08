@@ -29,8 +29,8 @@ const LegalContentSidebar = ({
 
   return (
     <aside className="hidden md:block w-64 pr-8 sticky top-20 self-start">
-      <div className="rounded-lg border border-slate-200 bg-white/60 dark:bg-slate-900/60 p-4 text-sm">
-        <p className="font-semibold mb-3">{title}</p>
+      <div className="rounded-lg border border-slate-200 bg-white p-4 text-sm">
+        <p className="font-semibold mb-3 text-black">{title}</p>
         <ul className="space-y-2">
           {sections.map((s, i) => (
             <li key={i}>

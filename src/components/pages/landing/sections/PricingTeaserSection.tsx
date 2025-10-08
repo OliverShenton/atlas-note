@@ -3,7 +3,7 @@
 import { Button } from "@/components/global/Button";
 import SectionContainer from "@/components/global/SectionContainer";
 import SectionTitle from "@/components/global/SectionTitle";
-import { Billingcycle, pricingData } from "@/components/pages/pricing/pricingData";
+import { Billingcycle, pricingData } from "@/app/product/pricing/pricingData";
 import { useState } from "react";
 import Card from "@/components/pages/landing/pricing/Card";
 

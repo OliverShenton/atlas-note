@@ -8,9 +8,14 @@ import Link from "next/link";
 const baseStyle =
   "w-full text-center min-w-[44px] min-h-[44px] flex items-center justify-center rounded-xl transition-all duration-300 cursor-pointer";
 
-export const Button = ({ id, children, className = "", title }: ButtonProps) => {
+export const Button = ({ id, children, value, className = "", title }: ButtonProps) => {
   return (
-    <button id={id} title={title} className={`${baseStyle} ${className}`}>
+    <button
+      id={id}
+      type="button"
+      value={value}
+      title={title}
+      className={`${baseStyle} ${className}`}>
       {children}
     </button>
   );

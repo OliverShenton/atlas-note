@@ -1,16 +1,18 @@
 export type Billingcycle = "monthly" | "yearly";
 
 export interface PricingSchema {
+  cardColor: string;
   planType: string;
   priceMonthly: number;
   priceYearly: number;
   features: string[];
-  button: { buttonText: string; buttonHref: string; buttonColor: string };
+  button: { buttonText: string; buttonHref: string };
   highlight: boolean;
 }
 
-export const pricingData: PricingSchema[] = [
+export const featuredData: PricingSchema[] = [
   {
+    cardColor: "bg-red-500/25",
     planType: "Free",
     priceMonthly: 0,
     priceYearly: 0,
@@ -24,11 +26,11 @@ export const pricingData: PricingSchema[] = [
     button: {
       buttonText: "Start for free",
       buttonHref: "/auth/signup",
-      buttonColor: "bg-blue-500 hover:bg-blue-600",
     },
     highlight: false,
   },
   {
+    cardColor: "bg-green-500/25",
     planType: "Professional",
     priceMonthly: 20,
     priceYearly: 200,
@@ -42,11 +44,11 @@ export const pricingData: PricingSchema[] = [
     button: {
       buttonText: "Start Pro",
       buttonHref: "/signup?plan=pro",
-      buttonColor: "bg-green-500 hover:bg-green-600",
     },
     highlight: true,
   },
   {
+    cardColor: "bg-blue-500/25",
     planType: "Enterprise",
     priceMonthly: 50,
     priceYearly: 500,
@@ -61,14 +63,13 @@ export const pricingData: PricingSchema[] = [
     ],
     button: {
       buttonText: "Contact Sales",
-      buttonHref: "/contact",
-      buttonColor: "bg-amber-500 hover:bg-amber-600",
+      buttonHref: "/company/contact",
     },
     highlight: false,
   },
 ];
 
-export const comparisonFeatures = [
+export const comparisonTableData = [
   { feature: "Workspaces", free: "1", pro: "Unlimited", enterprise: "Unlimited" },
   { feature: "Blocks", free: "50", pro: "Unlimited", enterprise: "Unlimited" },
   { feature: "AI queries", free: "Basic", pro: "Advanced", enterprise: "Advanced + custom tuning" },
@@ -79,13 +80,17 @@ export const comparisonFeatures = [
   { feature: "Custom integrations", free: "—", pro: "—", enterprise: "Yes" },
 ];
 
-export const socialProof = [
-  { logo: "", name: "NovaReach Technologies" },
-  { logo: "", name: "LumenRoot BioSystems" },
-  { logo: "", name: "Atlasyn Dynamics" },
-  { logo: "", name: "Halcyon Forge Industries" },
-  { logo: "", name: "Vireo Quantum" },
-  { logo: "", name: "EmberVale Studios" },
-  { logo: "", name: "Zephyra Aeronautics" },
-  { logo: "", name: "Everline Financial" },
+import logo1 from "@/assets/images/pricing-social-proof-logos/image-1.png";
+import logo2 from "@/assets/images/pricing-social-proof-logos/image-2.png";
+import logo3 from "@/assets/images/pricing-social-proof-logos/image-3.png";
+
+export const socialProofData = [
+  { logo: logo1, name: "NovaReach Technologies" },
+  { logo: logo2, name: "LumenRoot BioSystems" },
+  { logo: logo1, name: "Atlasyn Dynamics" },
+  { logo: logo1, name: "Halcyon Forge Industries" },
+  { logo: logo1, name: "Vireo Quantum" },
+  { logo: logo1, name: "EmberVale Studios" },
+  { logo: logo1, name: "Zephyra Aeronautics" },
+  { logo: logo1, name: "Everline Financial" },
 ];

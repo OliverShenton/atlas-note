@@ -1,4 +1,4 @@
-import { PricingSchema } from "@/components/pages/pricing/pricingData";
+import { PricingSchema } from "@/app/product/pricing/pricingData";
 
 const Card = ({ planType }: PricingSchema) => {
   return (
