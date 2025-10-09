@@ -11,7 +11,8 @@ const FeaturedSection = () => {
   const [billing, setBilling] = useState<"monthly" | "yearly">("monthly");
 
   return (
-    <SectionContainer id="pricing-featured-section" width="max-w-6xl">
+    <SectionContainer id="pricing-featured-section" width="max-w-6xl" innerClassName="space-y-16">
+      <div className="absolute inset-0 rounded-full bg-white/3 blur-3xl -z-10" />
       <SectionTitle
         title="Plans & Pricing"
         subtitle="Choose the plan that fits your team. Scale as you grow. Simply and transparently."
@@ -19,7 +20,7 @@ const FeaturedSection = () => {
         tagColor="bg-gradient-to-br from-blue-500 to-cyan-500"
       />
       <FeaturedBillingCycle value={billing} onChange={setBilling} />
-      <div className="flex gap-8">
+      <div className="flex gap-8 z-10">
         {featuredData.map((item) => (
           <FeaturedCard
             key={item.planType}

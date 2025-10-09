@@ -1,8 +1,7 @@
-import SectionContainer from "@/components/global/SectionContainer";
-import Hero from "@/components/pages/career-page/Hero";
-import Perks from "@/components/pages/career-page/Perks";
-import WhyJoinUs from "@/components/pages/career-page/WhyJoinUs";
 import { Metadata } from "next";
+import HeroSection from "./components/HeroSection";
+import CultureSection from "./components/CultureSection";
+import ContactSection from "./components/ContactSection";
 
 export const metadata: Metadata = {
   title: "Careers | AtlasNote",
@@ -12,11 +11,11 @@ export const metadata: Metadata = {
 
 const CareerPage = () => {
   return (
-    <SectionContainer id="career-page">
-      <Hero />
-      <WhyJoinUs />
-      <Perks />
-    </SectionContainer>
+    <>
+      <HeroSection />
+      <CultureSection />
+      <ContactSection />
+    </>
   );
 };
 

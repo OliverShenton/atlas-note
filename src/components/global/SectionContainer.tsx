@@ -5,9 +5,9 @@ interface SectionContainerProps {
   children: React.ReactNode;
   fullScreen?: boolean;
   width?: string;
-  className?: string;
+  outerClassName?: string;
+  innerClassName?: string;
   position?: "relative" | "absolute" | "static";
-  verticalSpacing?: string;
   verticalPadding?: boolean;
 }
 
@@ -18,17 +18,23 @@ const SectionContainer = ({
   children,
   fullScreen,
   width = "w-full",
-  className = "",
+  outerClassName = "",
+  innerClassName = "",
   position = "relative",
-  verticalSpacing = "space-y-16",
-  verticalPadding = true,
+  verticalPadding,
+  ...rest
 }: SectionContainerProps) => {
   return (
-    <section id={id} aria-label={ariaLabel} aria-labelledby={ariaLabelledBy} className={className}>
+    <section
+      id={id}
+      aria-label={ariaLabel}
+      aria-labelledby={ariaLabelledBy}
+      className={outerClassName}>
       <div
-        className={`${width} mx-auto ${verticalSpacing} ${verticalPadding ? "py-20" : "py-10"} ${
+        className={`${width} mx-auto ${verticalPadding ? "py-20 space-y-20" : "py-16 space-y-16"} ${
           fullScreen ? "min-h-[100dvh] h-full w-full" : undefined
-        } ${position}`}>
+        } ${position} ${innerClassName}`}
+        {...rest}>
         {children}
       </div>
     </section>
